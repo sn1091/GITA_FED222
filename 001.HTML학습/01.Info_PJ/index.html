@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            네이버 요약 뉴스
+            <meta charset="utf-8">
+        </title>
+    </head>
+    <body>
+        <!-- 1. 상단영역 -->
+        <div>
+            <!-- 1-1.제목 -->
+            <h1>네이버 요약 뉴스</h1>
+            <!-- 1-2.메뉴 -->
+            <div>
+                <a href="index.html">
+                    <img src="images/logo.png" alt="네이버로고" style="width: 20px">
+                </a>
+                <a href="sub1.html">정치</a>
+                <a href="sub2.html">경제</a>
+                <a href="sub3.html">사회</a>
+                <a href="sub4.html"> IT/과학</a>
+                <a href="sub5.html">TV/연예</a>
+            </div>
+        </div>
+        <!-- 2. 메인영역 -->
+        <div>
+            <img src="./images/main.jpg" alt="메인이미지" title="요약뉴스 보고싶다!" style="width: 600px;">
+
+        </div>
+        <!-- 3. 하단영역 -->
+        <div>
+            <!-- 회사주소 및 정보 -->
+            <address>
+                서울시 강남구 역삼동 119 대호B 8F <br>
+                대표 : Sena Park <br>
+                Tel : 010 - 0000- 1234
+            </address>
+        </div>
+
+        <!-- 
+            [ html 요소]
+            1. div : 컨텐츠 구분박스
+            (divide, division)
+            -> 옆에 아무도 못옴 -> 블록요소
+
+            2. div의 형제들 소개!
+            -> 레이아웃을 잡을 때 어떤 내용 부분인지 알 수 있도록 의미가 있는 블록 요소들!(시멘틱 요소)
+                1) header - 상단영역
+                2) footer - 하단영역
+                3) main - 메인영역 (한 페이지에 한 번만 사용) 
+                4) nav - 네비게이션 메뉴
+                5) aside - 부수적인 내용
+                6) section - 내용 구분을 위한 영역
+                7) article - 독립적인 내용
+                    (보통 article이나 secion은 w3c에서 heading태그를 내용으로 함께 쓸 것을 권고하고 있다!)
+
+            3. img 요소 : 이미지를 불러오는 요소
+            - src 속성 - 이미지 경로 셋팅
+            - alt 속성 - 이미지 설명
+            (alternative text - 대체 텍스트)
+            -> alt는 필수속성으로 웹접근성을 위한 속석
+            (웹접근성 평등의 원칙으로 누구나 이미지의 설명을 들어볼 수 있게함 - 스크린 리더기에서 이것을 읽어준다!)
+
+            __________________________________________________________________________________
+
+            [요소 공통 속성 - 어느 요소나 쓸 수 있음]
+            1. style 속성 - css셋팅을 해주는 인라인 속성
+                -> 값은 아래와 같이 셋팅함.
+                style="속성명:값; 속성명:값;"
+            _______________________________
+            :콜론   ;세미콜론 - 잘 구분하자!
+
+            2. title 속성 - 툴팁을 띄워주는 속성
+         -->
+    </body>
+
+</html>
