@@ -196,11 +196,12 @@ main#cont {
         특징 - 최소높이보다 내용이 많아지면 늘어남!
     */
     min-height: 500px;
+
+    /* .ct에서 글자중앙정렬 되어 있으므로 
+    여기서 왼쪽정렬로 덮어쓴다! */
+    text-align: left;
 }
 
-#cont img {
-    width: 100%;
-}
 
 /* 하단주소 */
 footer#info {
