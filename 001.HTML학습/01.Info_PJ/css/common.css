@@ -201,6 +201,9 @@ main#cont {
     여기서 왼쪽정렬로 덮어쓴다! */
     text-align: left;
 }
+.afig{
+    text-align: center;
+}
 
 
 /* 하단주소 */
