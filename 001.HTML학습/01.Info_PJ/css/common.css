@@ -192,6 +192,10 @@ nav.gnb a {
 main#cont {
     /* 하단마진 */
     margin-bottom: 20px;
+    /* 최소높이값 설정 : min-height 
+        특징 - 최소높이보다 내용이 많아지면 늘어남!
+    */
+    min-height: 500px;
 }
 
 #cont img {
