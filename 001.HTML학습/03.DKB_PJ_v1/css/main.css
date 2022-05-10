@@ -5,3 +5,15 @@
 @import url(reset.css);
 @import url(core.css);
 @import url(common.css);
+
+/* 구현중 공사중 외곽선 표시 */
+
+body *{
+    outline: 1px dashed gray;
+}
+
+/* 
+    별(*) 선택자는 모든요소를 선택함!
+    outline 속성은 border와 달리 박스모델의 구성속성아님!
+    보더와 달리 아웃라인은 크기를 차지 하지 않고 외곽선으로 표시만 된다!
+*/
