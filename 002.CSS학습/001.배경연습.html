@@ -56,9 +56,62 @@
             값 : 가로 세로 
             가로 - 단위값(px,%등), left, center, right
             세로 - 단위값(px,%등), top, center, bottom
-            ((유의사항 : 값을 하나만 쓰면 가로값만 셋팅되고 세로값은 자동으로 셋팅))
+            ((기준: 가로는 요소의 맨왼쪽선, 세로는 맨윗선
+            요소의 정중앙을 기점으로 - 50% 50%는 정중앙위치))
+            - 가로값은 기본값이 left임
+            - 세로값은 기본값이 center임! (안쓰면 중앙위치)
             */
-            background-position: 0 0;
+            background-position: right bottom;
+
+            /* 6. 배경크기 -bgz
+            값 : 가로 세로
+            가로,세로 중 한쪽 크기만 주면 이미지 비율유지
+            - 특정값 : 
+            contain 비율유지하며 이미지가 모두 보이도록 채움
+            cover 비율유지하며 빈곳이 없이 배경이미지 채움!
+            auto 비율유지 자동값
+            ((유의사항 : 값을 하나만쓰면 가로크기만 적용되고
+            세로크기는 자동으로 셋팅됨. 비율유지함!))
+            */
+            background-size: auto 200px;
+        }
+
+        /* 내부박스 */
+        .wrap{
+            height: 100%;
+            /* 부모(body) 높이만큼 채우기 */
+            overflow: hidden;
+            /* 자식요소 마진포함 */
+
+            /* 
+                [배경이미지를 여러개 주려면 어떻게 하나?]
+                ->배경셋팅을 한번에 주고 콤마로 구분하여
+                여러개 배경을 셋팅할 수 있다.
+
+                background : 색 이미지 반복 고정 위치/크기
+                background : 색이반고윙/크
+
+                -> 유의사항 : 여러배경 이미지 사용시 순서는
+                먼저 셋팅한 배경이 위에온다!
+
+                ->참고) 배경이미지 크기 셋팅시 값을 하나만 쓰면 가로크기값이고 세로는 auto로 셋팅된다.
+
+                ->참고) 배경위치 세로 기본값은 center이다.
+
+                -> 주의사항) 한번에 배경 셋팅시 
+                위치이동이 없고 크기만 셋팅할 경우에도 위치값을 0이라도 쓰고 슬래쉬를 써야 크기값으로 셋팅이 된다!
+
+
+            */
+
+            background: 
+            url(imgs/dc1.png) no-repeat center/400px,
+            url(imgs/dc2.png) no-repeat right top/150px,
+            url(imgs/dc3.png) no-repeat left bottom /300px,
+            url(imgs/dc4.png) no-repeat right/200px,
+            url(imgs/bg_mainvisual.jpg) no-repeat 0/50%
+            ;
+
         }
 
     </style>
