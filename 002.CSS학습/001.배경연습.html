@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>001.배경연습</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* 세로높이값을 보이는 화면에 채움
+            기본적으로 height는 auto로 셋팅되어서 
+            내용만큼 높이가 생김 */
+
+            overflow: hidden; /* oh */
+            /* 넘치는 자식요소 숨기기
+            ->여기서는 h1태그의 마진탑값을 포함하기 위함!
+            ((기본사항)) 블록박스 내부의 다른 불록요소가 마진탑값을 사용할 경우 부모박스 바깥으로
+            마진이 나가는 현상이 생김!
+            -> 부모요소에 넘치는 자식요소 숨기기 셋팅인 overflow : hidden 셋팅을 하면 
+            자식요소의 마진탑값이 부모영역에 포함된다!
+            */
+        }
+
+        h1{
+            /* 블록요소 내부의 인라인요소나 글자 정렬 */
+            text-align: center;/* tac 중앙정렬 */
+
+        }
+
+        body{
+            /* 1. 배경색 - bgc */
+            background-color: pink;
+
+            /* 2. 배경이미지 - bgi 
+            url(이미지경로) */
+
+            background-image: url(imgs/bg_logo_a_01.png);
+
+            /* 3. 배경반복여부 - bgr
+                값 : no-repeat 반복없음
+                값 : repeat-x x축 반복
+                값 : repeat-y y축 반복
+                repeat 반복(기본값)
+                
+            */
+            background-repeat: no-repeat;
+
+            /* 4. 배경고정 - bga
+            값 : fixed 보이는 화면에 고정
+            스크롤 시 내려가지 않고 그대로 있음!
+            */
+            background-attachment: fixed;
+
+            /* 5. 배경위치: bgp
+            값 : 가로 세로 
+            가로 - 단위값(px,%등), left, center, right
+            세로 - 단위값(px,%등), top, center, bottom
+            ((유의사항 : 값을 하나만 쓰면 가로값만 셋팅되고 세로값은 자동으로 셋팅))
+            */
+            background-position: 0 0;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <h1>001.배경넣기 연습</h1>
+    </div>
+</body>
+</html>
