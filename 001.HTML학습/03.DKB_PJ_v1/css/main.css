@@ -58,11 +58,14 @@ body{
 }
 
 /* 가상요소로 clear 설정 */
+/* ::after로 맨뒤에 가상요소추가 */
 #cbx::after{
-    content: '나야나';
+    content: '';
+    display: block;/* db */
+    /* div와 비슷 - 안쓰면 span과 비슷 */
+    clear: both;
+    /* 주의 : block요소에만 적용됨! */
 }
-
-
 
 
 /* 캐릭터박스 공통 */
@@ -105,3 +108,30 @@ body{
     height크기를 안주면 비율을 유지함! */
 }
 
+
+/* 캐릭터 이름이미지 박스 */
+.ci span{
+    /* 블록으로 변경 */
+    display: block;
+
+    /* 인라인 요소 중앙정렬 */
+    text-align: center;
+}
+/* 이름이미지 중 첫번째 진한 이미지 숨기기 */
+/* 가상클래스로 첫번째 이미지 선택 */
+/* :first-child */
+.ci span img:first-child{
+    /* 화면출력 없앰 */
+    display: none;
+}
+
+/* 마우스 오버시 첫번째 이름이미지 보이기 */
+/* 마우스 오버시 가상클래스 :hover */
+.cat:hover .ci span img:first-child{
+    /* 원래 display로 복귀 */
+    display: inline;
+}
+.cat:hover .ci span img:last-child{
+    /* 원래 display로 복귀 */
+    display: none;
+}
