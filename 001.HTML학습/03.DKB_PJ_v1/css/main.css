@@ -34,6 +34,9 @@ body{
 /* 컨텐츠 속박스 */
 .cont{
     padding-top: 400px;
+
+    /* .inbox 최대가로크기 해제 */
+    max-width: none;
 }
 
 /* 캐릭터 부모 박스 */
@@ -47,11 +50,20 @@ body{
     /* margin-top: 500px; */
     /* height: 300px; */
    /* float된 자식의 높이값 인식하기 위해 overflow:hidden */
-    overflow: hidden;
+    /* overflow: hidden; - 여기서는 안씀 
+    -> 가상요소에 clear:both 사용할 것임! */
 
     outline: 4px dotted red;
     /* 외곽선 */
 }
+
+/* 가상요소로 clear 설정 */
+#cbx::after{
+    content: '나야나';
+}
+
+
+
 
 /* 캐릭터박스 공통 */
 .cat{

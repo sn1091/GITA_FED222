@@ -195,3 +195,14 @@ main#cont{
     box-shadow: inset hoff voff blur #000; 
     */
 }
+
+/* 분야별 주요뉴스에 가상요소로 아이콘 넣기! */
+.secnews dt::before{
+    content: '♥';
+    color: red;
+}
+
+.secnews dd::before{
+    content: '☞';
+    color: rgb(92, 92, 244);
+}
