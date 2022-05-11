@@ -2,6 +2,21 @@
 /* 도깨비 공통 클래스 CSS - core.css */
 /* 공통클래스 ,웹폰트 등 공통모듈 */
 
+/* CDN 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Ma+Shan+Zheng&family=Nanum+Pen+Script&display=swap');
+
+/* 
+    1.설명 내용
+    font-family: 'Nanum Pen Script', cursive;
+
+    2.설명타이틀
+    font-family: 'East Sea Dokdo', cursive;
+    
+    3.한자
+    font-family: 'Ma Shan Zheng', cursive;
+*/
+
+
 /* 중앙 속박스 */
 .inbox{
 

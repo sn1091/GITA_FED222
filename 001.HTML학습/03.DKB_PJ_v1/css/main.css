@@ -148,3 +148,28 @@ body{
     /* 원래 display로 복귀 */
     display: none;
 }
+
+/* 캐릭터 설명박스 */
+.cd{
+    background: url(../images/eachBG.jpg) no-repeat center/cover;
+    
+}
+
+/* 캐릭터 설명 타이틀 */
+.cd h3{
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 30px;
+    font-weight: normal;
+    padding: 5px 10px 0;
+    /* 패딩: 위 양쪽 아래 */
+}
+
+/* 캐릭터 설명 문단 */
+.cd p{
+    font-family: 'East Sea Dokdo','Ma Shan Zheng', cursive;
+    /* font-family: 'Ma Shan Zheng', cursive; */
+    font-size: 24px;
+    line-height: 1.6;
+    padding: 10px;
+    text-align: justify;
+}
