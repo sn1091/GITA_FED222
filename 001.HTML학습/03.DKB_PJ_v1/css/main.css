@@ -116,7 +116,19 @@ body{
 
     /* 인라인 요소 중앙정렬 */
     text-align: center;
+    /* 상단마진 - 마이너스값을 주면 윗방향 겹쳐짐 */
+    /* margin-top: -62px; mt-62 */
+    margin-top: -16%; /* mt16p */
+
 }
+
+/* 이름 이미지 사이즈 조정 */
+.ci span img{
+
+    width: 32%;
+
+}
+
 /* 이름이미지 중 첫번째 진한 이미지 숨기기 */
 /* 가상클래스로 첫번째 이미지 선택 */
 /* :first-child */
@@ -131,6 +143,7 @@ body{
     /* 원래 display로 복귀 */
     display: inline;
 }
+
 .cat:hover .ci span img:last-child{
     /* 원래 display로 복귀 */
     display: none;
