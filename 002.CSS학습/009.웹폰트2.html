@@ -4,6 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title>웹폰트 CDN방식으로 적용하기</title>
+    <!-- external CDN 방식 -->
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&display=swap" rel="stylesheet">
+    
     
     <!-- 
         font-family: 'Montserrat Alternates', sans-serif;
@@ -45,7 +48,8 @@
              */
 
         /* import방식 CDN 웹폰트 */
-        
+      
+        @import url('https://fonts.googleapis.com/css2?family=Monofett&family=Montserrat+Subrayada&display=swap');
 
         /* 
             font-family: 'Monoton', cursive;
@@ -53,13 +57,24 @@
         */
 
         /* CDN 웹폰트 적용하기 */
-        .cdn1 {}
+        .cdn1 {
+            font-family: 'Bungee Inline', cursive;
+        }
 
-        .cdn2 {}
+        .cdn2 {
+            font-family: 'Bungee Shade', cursive;
 
-        .cdn3 {}
+        }
 
-        .cdn4 {}
+        .cdn3 {
+            font-family: 'Montserrat Subrayada', sans-serif;
+
+        }
+
+        .cdn4 {
+            font-family: 'Monofett', cursive;
+
+        }
     </style>
 </head>
 
