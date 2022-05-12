@@ -99,6 +99,18 @@ body{
 
     */
 }
+/* 이미지박스 */
+/* 트랜지션 : 속시이지 */
+.ci{
+transition : margin-top .4s ease-out;
+}
+
+/* 캐릭터박스(.cat)에 마우스 오버시
+이미지박스(.ci)위로 이동하기 */
+.cat:hover .ci{
+    /* 마진탑값 마이너스면 위쪽으로 올라감! */
+    margin-top: -137px;
+}
 
 /* 이미지박스 이미지 */
 /* 직계이미지인 캐릭터 이미지만 변경 */
@@ -151,11 +163,57 @@ body{
 
 /* 캐릭터 설명박스 */
 .cd{
-    height: 250px;
+    /* height: 250px; -마우스 오버 시, 변경할 크기*/
+    height: 0;
     background: url(../images/eachBG.jpg) no-repeat center/cover;
-    overflow-y: scroll;
+    
     /* x축 스크롤바 트랙없는 y축 스크롤 설정 */
+    overflow-y: scroll;
+
+    /* 상단마진 */
+    margin-top : 15px;
+    /* 둥근모서리 */
+    border-radius: 20px 5px 5px 20px;
+
+    /* 트랜지션 */
+    transition: height .4s ease-out;
+    /* 원본에 넣으면 양쪽에 효과 있음 */
+    /* hover에 넣으면 한쪽만 효과 있음 */
+    
+    /* transition: height .4s ease-out 1s,
+    background-color 1s ease-in-out 1.4s;  */
+
+
 }
+
+/****************************************************************
+    [트랜지션(Transition) 애니메이션 효과주기 ]
+    -> 속성값의 변화과정을 보여주면서 애니메이션함
+    transition : 속성 시간 이징 지연 -> 속시이지!
+    1. 속성 - 변경 애니메이션 대상 속성
+        (속성을 안쓰면 기본값 all이 들어가서 모두 적용됨)
+    2. 시간 - 애니메이션 시간 : 초단위(s)
+    3. 이징(easing) - 가속도
+        1) ease : 애니 앞뒤에 약간씩 느려짐(기본값)
+        2) ease-in : 애니 처음에 서서히 빨라짐
+        3) ease-out : 애니 끝에 서서히 느려짐
+        4) ease-in-out : 애니 시작과 끝에 천천히
+        5) linear : 등속도
+        -> 베이지곡선으로 매우 다채롭게 가속도 조정가능
+    4. 지연 - 지연시간. 즉, 애니 시작전 대기시간(초단위:s)
+    5. 적용법 : 오버시와 원상복귀되는 애니가 똑같다면
+                오버 설정 전인 원본에 한번만 주면 양방향이 동일하게 적용된다.
+                만약 오버시와 아웃시가 달라야 한다면 각각 트랜지션을 설정한다!
+
+****************************************************************/
+
+/* 캐릭터박스(.cat)에 마우스오버시 설명박스(.cd)보이기 */
+.cat:hover .cd{
+    height: 250px;
+    /* background: red; */
+    /* transition: height .4s ease-out; */
+}
+
 
 /* 캐릭터 설명 타이틀 */
 .cd h3{
