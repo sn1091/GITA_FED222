@@ -194,12 +194,16 @@ transition : margin-top .4s ease-out;
         (속성을 안쓰면 기본값 all이 들어가서 모두 적용됨)
     2. 시간 - 애니메이션 시간 : 초단위(s)
     3. 이징(easing) - 가속도
-        1) ease : 애니 앞뒤에 약간씩 느려짐(기본값)
-        2) ease-in : 애니 처음에 서서히 빨라짐
-        3) ease-out : 애니 끝에 서서히 느려짐
-        4) ease-in-out : 애니 시작과 끝에 천천히
-        5) linear : 등속도
-        -> 베이지곡선으로 매우 다채롭게 가속도 조정가능
+    
+    1) ease : 애니 앞뒤에 약간씩 느려짐(기본값)
+    2) ease-in : 애니 처음에 서서히 빨라짐
+    3) ease-out : 애니 끝에 서서히 느려짐
+    4) ease-in-out : 애니 시작과 끝에 천천히
+    5) linear : 등속도
+    -> 베이지곡선으로 매우 다채롭게 가속도 조정가능
+    
+    -> w3c 속도비교 : 
+    https://www.w3schools.com/css/tryit.asp?filename=trycss3_transition_speed
     4. 지연 - 지연시간. 즉, 애니 시작전 대기시간(초단위:s)
     5. 적용법 : 오버시와 원상복귀되는 애니가 똑같다면
                 오버 설정 전인 원본에 한번만 주면 양방향이 동일하게 적용된다.
