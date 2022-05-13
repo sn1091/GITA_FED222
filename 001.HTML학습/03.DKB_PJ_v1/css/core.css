@@ -2,8 +2,14 @@
 /* 도깨비 공통 클래스 CSS - core.css */
 /* 공통클래스 ,웹폰트 등 공통모듈 */
 
+
 /* CDN 웹폰트 */
-@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Ma+Shan+Zheng&family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=East+Sea+Dokdo&family=Ma+Shan+Zheng&family=Nanum+Pen+Script&display=swap');
+
+/* 공통 글씨체 :나눔고딕 */
+body{
+    font-family: 'Nanum Gothic', sans-serif;
+}
 
 /* 
     1.설명 내용
@@ -14,6 +20,9 @@
     
     3.한자
     font-family: 'Ma Shan Zheng', cursive;
+
+    4. 상단, 하단 글자
+    font-family: 'Nanum Gothic', sans-serif;
 */
 
 /* 스크롤바 디자인 클래스*/
@@ -50,4 +59,11 @@
 
     /* 마진에 의한 블록박스 중앙정렬 -> 마영오!  */
     margin: 0 auto;
+}
+
+/* float해제 가상클래스 */
+.clb::after{
+    content: '';
+    display: block;
+    clear: both;
 }

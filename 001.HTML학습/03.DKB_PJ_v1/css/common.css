@@ -5,7 +5,11 @@
 /************************** 1. 상단영역 **************************/
 #top {
     /*겉박스 */
-    background: #fff;
+    /* 배경색 */
+    background-color: #fff;
+
+    /* 하단보더 */
+    border-bottom: 1px solid #ccc;
 }
 
 
@@ -24,9 +28,60 @@
 /* 로고이미지 */
 #logo img {
     width: 100px;
+
+    /* a요소나 div 등으로 이미지를 싸면 하단에 4px공백이 들어감.
+    이것을 없애려면 vertical-align 값을 설정하면 해결됨!
+    값으로 top, middle 또는 bottom 뭘 써도 됨.*/
+    vertical-align: top;
 }
 
-/* GNB 메뉴 박스 */
+/* 1-2. 탑메뉴 */
+
+/* 최상위박스 가상요소 float해제 */
+/* .tmenu::after{
+    content: '';
+    display: block;
+    clear: both;
+} */
+
+/* 내용 리스트 박스 */
+.tmenu ul{
+    /* 오른쪽 끝으로 */
+    float :right;
+    /* 마진탑으로 위로 올라감 */
+    /* 부모박스의 높이값은 0이 됨! 왜 ? 빠져나가니까! */
+    margin-top: -54px;
+}
+
+/* 공통자식float 높이 인식 */
+/* .tmenu ul, .tmenu ol{
+    overflow: hidden;
+    float 자식요소 높이인식
+} */
+
+.tmenu li{
+    /* 옆으로 흐르게 */
+    float: left;
+
+}
+
+.tmenu>ul>li{
+    padding: 0 15px;
+}
+
+/* 탑메뉴 상위 a요소 */
+.tmenu>ul>li>a{
+    /* 글자크기 */
+    font-size: 15px;
+    /* 글자색 */
+    color: #000;
+    /* 밑줄없앰 */
+    text-decoration: none;
+}
+
+/* 1-3. GNB메뉴 */
+
+
 /* .gnb {
     background-color: rgba(247, 172, 31, 0.892);
 } */
@@ -101,36 +156,43 @@ ol {
     line-height: 44px;
     /* outline: 2px dotted gray; */
     /* 트랜지션 : 속시이지 */
-    transition: all .3s;
+    /* transition: all .3s; ->트랜지션 불필요*/
 
 
 }
 
 /* a에 마우스 오버시 배경색변경 */
 /* 부모 li에 마우스 오버시 상위메뉴 a요소 변경 */
-/* .gnb>ul>li:hover>a {
-    background-color: rgb(33, 48, 62);
-    color: rgb(215, 149, 67);
-} */
+.gnb>ul>li:hover>a {
+    border-bottom: 4px solid red;
+    padding-bottom: 5px;
+    /* 인라인요소의 위아래 방향 패딩과 보더는
+    다른요소에 영향을 미치지 않고 디자인만 나온다! */
+}
 
 
 /* 서브메뉴 */
 .smenu {
     
+    /* 서브메뉴 숨김장치 
+    -> 높이값 0 + 넘치는 자식요소 숨기기
+    주의) 위아래방향 패딩  없어야함!*/
+
     /* 가로크기 설정 - 부모박스 크기에 영향없도록 */
     width : 88px;
+
     /* 노랩박스 만들기 - 공백속성 싸지마!
     좁아도 안떨어짐!(메뉴글자에 많이 설정함) */
     white-space: nowrap;
     
-    /* 서브메뉴 숨김장치 
-    -> 높이값 0 + 넘치는 자식요소 숨기기
-    주의) 위아래방향 패딩  없어야함!*/
     height: 0px;
     /* padding: 10px; */
     /* outline: 2px dotted darkblue; */
     overflow: hidden;
     background-color: #fff;
+
+    /* 상단마진조정 */
+    margin-top: -1px;
 
     /* 트랜지션:속시이지 */
     transition: height .4s ease-out;
@@ -178,7 +240,6 @@ ol {
     /* 트랜지션:속시이지 */
     transition: .3s;
 
-    color: rgb(175, 102, 12);
 }
 
 /* 서브메뉴 a에 오버시 */
