@@ -80,6 +80,13 @@
 }
 
 /* sns 메뉴 리스트 */
+.sns{
+    /* 상단마진 - 위로이동! */
+    margin-top: -5px;
+    margin-left: 2px;
+}
+
+
 .sns a{
     /* 블록변경-디자인적용 */
     display: block;
@@ -144,7 +151,7 @@ ol {
 /* ul 초기화 */
 .gnb ul {
     /* 가로크기 */
-    width: 668px;
+    width: 580px;
     margin: 0 auto;
     /* 마영오 - 블록요소 가로중앙정렬 */
 
@@ -210,7 +217,7 @@ ol {
 /* 부모 li에 마우스 오버시 상위메뉴 a요소 변경 */
 .gnb>ul>li:hover>a {
     border-bottom: 4px solid red;
-    padding-bottom: 5px;
+    padding-bottom: 11px;
     /* 인라인요소의 위아래 방향 패딩과 보더는
     다른요소에 영향을 미치지 않고 디자인만 나온다! */
 }
@@ -237,7 +244,7 @@ ol {
     background-color: #fff;
 
     /* 상단마진조정 */
-    margin-top: -1px;
+    margin-top: 4px;
 
     /* 트랜지션:속시이지 */
     transition: height .4s ease-out;
@@ -300,7 +307,89 @@ ol {
 
 
     /************************** 3. 하단영역 **************************/
+    #info
+    {
+        background-color: rgba(245, 243, 243, 0.609);
+        
+    }
 
     .info {
         height: 241px;
+    }
+
+    /* 3-1. 하단추가정보링크 */
+    .blink{
+        padding-top: 5px;
+    }
+    
+    .blink ul{
+        /* 블록박스 중앙정렬은 가로크기가 auto이면 안되고 부모보다 작아야 함. */
+        width: 804px;
+        margin: 0 auto;
+        /* 마영오! 블록가로 중앙 */
+        
+    }
+    
+    .blink li{
+
+        float: left;
+        padding: 0 15px;
+    }
+
+    /* 하단링크 a요소 */
+    .blink a{
+        color: #222;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 2.8;
+    }
+
+    /* 마우스 오버시 a요소 */
+    .blink a:hover{
+        color: red;
+        text-decoration: underline;
+    }
+
+     /* 3-2. 브랜드 바로가기  */
+    .brand select{
+        /* 블록변경 - 마진탑을 마이너스로 올릴때 
+        인라인블록이어서 인라인 특성상 상단의
+        링크메뉴 글자부분에서 걸리게 됨. 
+        따라서 이런제한이 없는 블록박스로 변경함. */
+        display: block;
+        /* 오른쪽 float */
+        float: right;
+        /* 마진탑 - 위로 올리기 */
+        margin-top: -35px;
+
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 2.8;
+        padding: 5px;
+    }
+
+    /* 3-3. 회사주소박스 */
+    .addr{
+        padding: 10px;
+    }
+    
+    .addr address{
+        min-width: 804px;
+        margin: 0 auto;
+        border: 4px double #222;
+        font-size: 14px;
+        line-height: 2;
+        text-align: center;
+        /* adrress 기본 이탤릭체 해제 */
+        font-style: normal;
+
+        padding: 10px;
+        /* 박스크기유지 */
+        box-sizing: border-box;
+    }
+
+    /* 3-4. 하단 로고박스 */
+    .blogo{
+        text-align: center;
     }
