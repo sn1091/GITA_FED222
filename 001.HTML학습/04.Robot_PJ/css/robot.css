@@ -237,3 +237,41 @@ body *{
     border-radius: 5px 50% 50% 5px;
 }
 
+/* tv */
+#tv{
+    position: absolute;
+    top: 90px;
+    left: 26px;
+    /* 부모는? #body */
+
+    width: 200px;
+    height: 150px;
+    background: url(../images/tv.jpg) no-repeat 0/100% 100%;
+}
+/* 스크린 */
+#screen{
+    position: absolute;
+    top: 18px;
+    left: 13px;
+    /* 부모는? #tv */
+    width: 137px;
+    height: 103px;
+    background-color: #000;
+    border-radius: 15px;
+    /* 넘치는 자속요소 숨기기 */
+    overflow: hidden;
+}
+
+/* 유튜브 아이프레임 */
+#screen iframe{
+    position: absolute;
+    top: 0px;
+    left: -30px;
+    /* 부모는? #screen */
+
+    width: 125%;
+    height: 100%;
+
+    /* 아이프레임 기본보더 없앰 */
+    border: none;
+}
