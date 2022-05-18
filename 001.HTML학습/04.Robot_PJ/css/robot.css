@@ -18,13 +18,19 @@ html{
 html,body{
     margin: 0;
     padding: 0;
+  
 }
 
 body{
 
     background: url(../images/bg.jpg) no-repeat fixed top/cover;
     padding-top: 100px;
-
+    overflow-x: hidden;
+    /* 가로 스크롤바 숨기기 */
+    /* sticky 포지션을 위한 주의사항!
+    overflow-x 숨기기 셋팅을 html과 동시에
+    잡으면 sticky가 작동하지 않는다!
+    body에만 설정할것! */
 }
 
 /* 공사중표시 */
@@ -32,11 +38,25 @@ body{
     outline: 2px dashed lime;
    box-shadow: 0 0 10px 5px cyan;
 } */
+
+/* 
+    [ 요소 정중앙 정렬법]
+
+    1. 50%로 밀고 자기크기의 절반만큼 빼기
+    예) calc(50%-특정px)
+    - calc() 메서드는 css전용 계산메서드
+    > 사칙연산이 모두 가능함
+    여기서는 유동적인 %에서 특정px를 뺄 때 사용함
+*/
+
+
+
 /* 로봇페이지 로고 */
 h1#logo{
     position: fixed;
-    top: 50px;
-    left: 50px;
+    top: calc(50% - 102px);
+    left: calc(50% - 102px);
+    /* 102px을 뺀것은 보더 크기 고려 */
     /* fixed의 부모는 보이는 화면(window)! */
 
     width: 200px;
@@ -71,6 +91,8 @@ h1#logo{
     background: pink url(../images/robot_03.png) no-repeat;
     background-position: center 10px;
     background-size: 160px;
+
+
 }
 
 /* 내용보기 링크 타이틀 */
@@ -79,6 +101,9 @@ h1#logo{
     top: 100px;
     right:50px;
     /* 부모는? 보이는화면! */
+
+    /* 처음에 안보임 - 투명 */
+    opacity: 0;
 
 }
 
@@ -117,7 +142,10 @@ h1#logo{
     border-radius: 50%;
     border: 5px outset #fff;
 
+    /* 처음에 안보임 - 투명 */
+    opacity: 0;
 }
+
 
 /* TOP버튼 오버시 */
 .btnTop:hover{
@@ -131,6 +159,8 @@ h1#logo{
 #head{
     position: relative;
     /* 부모자격 */
+    /* 처음에는 오른쪽에 나가있음 */
+    left: 100%;
 
     width: 250px;
     height: 250px;
@@ -219,6 +249,9 @@ h1#logo{
 #body{
     position: relative;
     /* 부모자격! */
+
+    /* 처음에는 왼쪽으로 나가있음 */
+    left: -100%;
     width: 250px;
     height: 300px;
     margin: 0 auto;
