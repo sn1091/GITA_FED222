@@ -91,15 +91,36 @@
             - deg는 각도의 단위(도:degree)
          */
         #trans1:hover img {
+            /* tfry */
+            transform: rotateY(180deg) scale(2);
+            filter: grayscale(100%);
             
+            /* 필터(이미지필터효과)
+            grayscale(비율%) - 100% 완전흑백 */
 
+            /* 기본 트랜지션속성 변경하기- trsp */
+            /* 기존의 transform만 적용을 모두로 변경 */
+            transition-property: all;
+            /* 트랜지션 시간변경 - trsd*/
+            transition-duration: 2s;
+
+        }
+
+
+        #trans2 img {
+            transform: rotateX(180deg);
+            /* 필터 blur(px값) - 흐림효과 */
+            filter: blur(1px);
+            transition-property: all;
         }
 
         /* 
             2. rotateX(각도deg) - X축회전
          */
         #trans2:hover img {
-          
+            transform: rotateX(0deg);
+            filter: blur(0px);
+
         }
 
         /* 
@@ -120,7 +141,8 @@
             - 이동방향: + 는 오른쪽, - 는 왼쪽
           */
         #trans3:hover img {
-           
+            transform: translateX(-50%);
+
         }
 
         /* 
@@ -132,7 +154,8 @@
             - 이동방향: + 는 아랫쪽, - 는 윗쪽
           */
         #trans4:hover img {
-            
+            transform: translateY(-100%);
+
         }
 
         /* 
@@ -146,7 +169,8 @@
                         - 는 왼쪽/윗쪽
           */
         #trans5:hover img {
-            
+            transform: translate(-200px, 100px);
+
         }
 
         /* 
@@ -157,12 +181,13 @@
                 (변경가능: transform-origin)
            */
         #trans6:hover img {
-            
+            transform: rotate(5500deg);
+            transition-duration: 10s;
         }
 
         /* 회전축 변경하기 */
         #trans6 img {
-           
+            transform-origin: 100px 50px;
             /* 
             [트랜스폼 축변경 속성]
             transform-origin: 가로값 세로값;
@@ -175,10 +200,11 @@
         /* 
                 7. skew - x,y축 기울임
                 - skewX(각도deg), skewY(각도deg)
+                - skew(x축,y축)
                 - 각도가 양수/음수에 따라 기울임 방향달라짐                
             */
         #trans7:hover img {
-           
+            transform: skewX(30deg);
         }
 
         /* 
@@ -189,13 +215,13 @@
                - 값이 0이면 사라짐
              */
         #trans8 img {
-            
+            transform: scale(0.5);
             /* 0.5배 -> 축소 */
         }
 
-        #trans8.on img {
-           
-            /* transform: scaleY(2); */
+        #trans8:hover img {
+
+            transform: scale(2);
         }
 
         /* 
@@ -203,8 +229,9 @@
                 transform: 속성1 속성2 속성3 .....;
               */
         #trans9:hover img {
-            
-        }
+            transform: scale(2) translate(-200%,-100%) rotateX(1200deg) skewX(50deg) rotate(5300deg);
+            transition-duration: 10s;
+        }   
 
         /* 
             10. 앞뒤로 있는 이미지 뒤집기
@@ -214,26 +241,44 @@
             - 순서는 나중에 그려진요소가 위에 온다
         */
         /* 2개의 이미지를 겹치게한다 */
-        
+
+        #trans10{
+            /* position: relative; */
+        }
+        #trans10 img{
+            position: absolute;
+            /* 위치값을 주지 않으면 젠틀앱솔루트 
+            -> 싸고 있는 박스에 그대로 위치함*/
+            width: 200px;
+            /* 공통적용인 width:100% 이면 앱솔루트는 부모를 찾아서 그 크기를
+            설정하므로 여기서는 부모가 보이는 화면이므로 특정크기를 주는 것이 더 편리하다 */
+        }
 
 
         /* 1. 보거미 처음상태(돌아옴) */
         /* Y축 0도로 돌아옴 - 0.4초 기다림 */
         #trans10 img:last-child {
-            
+            transform: rotateY(0deg);
+            transition: transform .4s ease-out .4s;
+            /* ease-out 정속도를 받아 끝날때 느려짐 */
         }
 
 
         /* 2. 보거미 오버상태 */
         /* Y축 90도회전 - 회전후 안보임*/
         #trans10:hover img:last-child {
-           
+            transform: rotateY(90deg);
+            transition: transform .4s ease-in;
+            /* ease-in 처음에 느리고 속도유지 */
+
         }
 
         /* 3. 유정이 처음상태(돌아옴) */
         /* 처음에 이미 Y축 90도 회전상태 - 안보임 */
         #trans10 img:first-child {
-           
+            transform: rotateY(90deg);
+            transition: transform .4s ease-in;
+            /* ease-in 처음에 느리고 속도유지 */
         }
 
 
@@ -241,7 +286,9 @@
         /* Y축 0도로 회전 
                - 보거미 0.4초 돌동안 기다렸가 0.4초돌기 */
         #trans10:hover img:first-child {
-            
+            transform: rotateY(0deg);
+            transition: transform .4s ease-out .4s;
+            /* ease-out 정속도를 받아 끝날때 느려짐 */
         }
 
 
