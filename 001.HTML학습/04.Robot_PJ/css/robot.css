@@ -22,11 +22,14 @@ html,body{
 }
 
 body{
-
     background: url(../images/bg.jpg) no-repeat fixed top/cover;
-    padding-top: 100px;
-    overflow-x: hidden;
+    /* 패딩탑은 main태그로 옮긴다! */
+    /* padding-top: 100px; */
+
+    /* 가로스크롤바 숨기기 -> .robx 에서 처리! */
+    /* overflow-x: hidden; */
     /* 가로 스크롤바 숨기기 */
+
     /* sticky 포지션을 위한 주의사항!
     overflow-x 숨기기 셋팅을 html과 동시에
     잡으면 sticky가 작동하지 않는다!
@@ -236,10 +239,48 @@ h1#logo{
     right:50px;
     /* 부모는? 보이는화면! */
 
+}
+
+/* 투명요소 보이게 키프레임 호출 클래스 */
+.opaAni {
     /* 처음에 안보임 - 투명 */
     opacity: 0;
-
+    /* 애니메이션 :이시이지반방마 */
+    animation: opaAni 1s forwards;
 }
+
+.opaAni.delay1 {
+   animation-delay:5s;
+}
+.opaAni.delay2 {
+   animation-delay:6s;
+}
+.opaAni.delay3 {
+   animation-delay:7s;
+}
+
+
+/* 투명요소 보이게 애니 키프레임 */
+@keyframes opaAni {
+    0%{
+        opacity: 1;
+    }
+    20%{
+        opacity: .3;
+    }
+    40%{
+        opacity: 1;
+    }
+    60%{
+        opacity: .3;
+    }
+    80%{
+        opacity: .5;
+    }
+    100%{
+        opacity: 1;
+    }
+} /* 키프레임 */
 
 /* 링크 a요소 */
 .link a{
@@ -276,8 +317,9 @@ h1#logo{
     border-radius: 50%;
     border: 5px outset #fff;
 
+    /* opaAni에 셋팅되어 있음! - 지움 */
     /* 처음에 안보임 - 투명 */
-    opacity: 0;
+    /* opacity: 0; */
 }
 
 
@@ -288,13 +330,27 @@ h1#logo{
     border-style: inset;
 }
 
+/* 로봇박스 */
+.robx{
+    /* body에 했던 설정을 여기에함! */
+    padding-top: 100px;
+    overflow: hidden;
+    /* 높이값 */
+    height: 980px;
+    /* 높이값을 지정한 이유!
+    -> 자식요소 #head의 relative포지션에서 top값을 %로 지정할 경우
+    부모 박스의 크기가 정해져 있어야 %가 적용된다. */
+}
 
 /* 로봇머리 */
 #head{
     position: relative;
     /* 부모자격 */
     /* 처음에는 오른쪽에 나가있음 */
-    left: 100%;
+    /* left: 100%; */
+  
+    /* 처음에 위로 나가 있음 */
+    top: -50%;
 
     width: 250px;
     height: 250px;
@@ -311,10 +367,21 @@ h1#logo{
     /* 애니메이션 : 이시이지반방마 */
     animation: backAni 1.5s ease-out 3s forwards;
 }
+/* 머리는 애니 딜레이 더줌 */
+/* .backAni.delay1
+-> .backAni에만 적용되는 .delay1이라는 뜻 */
+.backAni.delay1{
+    animation-delay: 4s;
+}
+
+
 /* 로봇머리, 로봇몸 제자리로 애니 키프레임 */
 @keyframes backAni {
     to{
+        top:0;
         left:0;
+        /* top,left 값이 0이란 relative에서 
+        원래 자기가 있던 위치를 말한다! */
     }
 }/* 키프레임 */
 
@@ -437,7 +504,34 @@ h1#logo{
 /* 팔2 */
 #arm2{
     right: -65px;
+    /* 트랜스폼 기준축 변경 : 상단 */
+    transform-origin: top;
+    animation: 
+    /* 팔올리기 애니 호출 */
+    riseAni .6s ease-out 7s forwards,
+    /* 팔흔들기 애니 호출 */
+    shakeAni .6s ease-in-out 7.6s infinite alternate;
 }
+/* 팔올리기 애니 키프레임 */
+@keyframes riseAni {
+
+    to{
+        transform:  rotate(-160deg);
+    }
+    
+}/* 키프레임 */
+
+/* 팔흔들기 애니 키프레임 */
+@keyframes shakeAni {
+    from{
+        transform:  rotate(-160deg);
+    }
+    to{
+        transform:  rotate(-140deg);
+    }
+    
+}/* 키프레임 */
+
 /* 가상요소로 집게손 만들기 */
 .arm::before{
     content: '';
@@ -671,4 +765,33 @@ h1#logo{
     font-size: 30px;
     font-weight: bold;
     color: salmon;
+}
+
+/* 하단영역 */
+.info{
+    padding: 50px;
+    text-align: center;
+    color: #fff;
+    /* 글자설정 한번에! */
+    font: 30px 'Black Ops One', cursive;
+    /* 글자그림자 */
+    text-shadow: 2px 2px 2px #000;
+    /* 배경반투명 */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.info span::before{
+    content: '';
+    display: inline-block;
+    vertical-align: -5px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+
+    
+    /* 배경 */
+    background: pink url(../images/robot_03.png) no-repeat;
+    background-position: -11px -3px;
+    background-size: 60px;
 }
