@@ -118,7 +118,7 @@ h1#logo{
     /* 애니메이션 : 이시이지반방마 */
     animation: 
     /* 애니1 : 이동하기(2초후 2초간) */
-    logoAni 2s ease-in-out 2s forwards,
+    logoAni 1s ease-in-out .5s forwards,
     /* 애니2 : 흔들기(4초후 1초간 영원히) */
     logoAni2 1s ease-in-out 4s infinite alternate;
 }
@@ -425,7 +425,7 @@ h1#logo{
 }
 
 /* 입 */
-#mouse{
+#mouth{
     position: absolute;
     bottom: 16px;
     left: 79px;
@@ -433,7 +433,17 @@ h1#logo{
     width: 90px;
     height: 40px;
     background: url(../images/mouth.png) no-repeat 0/100% 100%;
+
+    /* 애니메이션 : 이시이지반방마 */
+    animation: talkAni .1s linear 8s infinite alternate;
 }
+
+/* 말하기 애니 키프레임 */
+@keyframes talkAni {
+    to{
+        transform: scaleY(.2);
+    }
+}/* 키프레임 */
 
 /* 귀공통 */
 .ear{
