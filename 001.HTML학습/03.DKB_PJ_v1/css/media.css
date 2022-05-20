@@ -1,2 +1,131 @@
 @charset "utf-8";
 /* 도깨비 메인 페이지 미디어쿼리 - media.css */
+
+/******************************* 1070px 이하 미디어쿼리 시작 *******************************/
+@media screen and (max-width:1070px) {
+
+    /* 1. 전체 rem단위 글자 변경위한 root글자크기 변경 */
+    html {
+        font-size: 8px;
+    }
+
+    /* 2. 상단영역 중앙박스 */
+    .top {
+        height: 119px;
+    }
+
+    /* .gnb>ul>li.bgbx::after{
+        margin-top: 1px;
+    } */
+
+    /* 3.GNB 메뉴 */
+    .gnb ul {
+        width: 495px;
+    }
+
+    /* 4. 탑메뉴 */
+    .tmenu>ul>li>a {
+        line-height: 1.7;
+    }
+
+    /* 5. 개별 서브 메뉴 오버시 + 가상요소 서브배경 오버시*/
+
+
+    /* 첫번째 li오버시 가상요소배경 보이기 */
+    .gnb>ul>li:nth-child(1):hover .smenu,
+    .gnb>ul>li.m1:hover::after {
+        height: 96px;
+    }
+
+    /* 두번째 li오버시 가상요소배경 보이기 */
+    .gnb>ul>li:nth-child(3):hover .smenu,
+    .gnb>ul>li.m2:hover::after {
+        height: 128px;
+    }
+
+    /* 세번째 li오버시 가상요소배경 보이기 */
+    .gnb>ul>li:nth-child(4):hover .smenu,
+    .gnb>ul>li.m3:hover::after {
+        height: 64px;
+    }
+
+    /* 6. 하단링크 */
+    .blink ul {
+        width: 680px;
+    }
+
+    /* 7. 하단박스 */
+    .info {
+        height: auto;
+        padding-bottom: 15px;
+    }
+
+    /* 8. 브랜드 바로가기 */
+    .brand {
+        display: none;
+    }
+}
+
+/******************************* 1070px 이하 미디어쿼리 끝 *******************************/
+
+
+/******************************* 800px 이하 미디어쿼리 시작 *******************************/
+@media screen and (max-width:800px) {
+
+    /* 1. 숨기기 */
+    /* GNB메뉴, 서브메뉴, 서브메뉴배경, 가상요소, 탑메뉴, 문구이미지, 하단링크 */
+    .gnb,
+    .tmenu,
+    #dtxt,
+    .blink {
+        display: none;
+    }
+
+    /* 2.높이값 자동 : 상단영역, 컨텐츠영역  */
+    .top,
+    .cont {
+        height: auto;
+    }
+
+    /* 3. 햄버거 버튼 보이게 하기 */
+    .ham {
+        display: block;
+    }
+
+    /* 4. 캐릭터박스 비율변경 */
+    .cat {
+        width: 99%;
+    }
+
+    /* 5. 컨텐츠 영역 */
+    .cont {
+        padding: 30px 0;
+    }
+
+    /* 6. 캐릭터박스 오버시 이미지박스 */
+    .cat:hover .ci {
+        margin-top: 0;
+    }
+
+    /* 8. 캐릭터 설명 문단 */
+    .cd h3 {
+        font-size: 3.5rem;
+        padding: 1.5rem 2rem;
+    }
+
+    .cd p {
+        font-size: 3.2rem;
+        line-height: 4.2rem;
+        padding: 1.7rem;
+        margin: 0;
+    }
+
+    /* 9. */
+    .addr address{
+        font-size: 1.7rem;
+        padding: 1.1rem;
+    }
+}
+
+
+/******************************* 800px 이하 미디어쿼리 끝 *******************************/

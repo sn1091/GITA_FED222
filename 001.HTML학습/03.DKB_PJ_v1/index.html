@@ -7,9 +7,11 @@
 
 <head>
     <meta charset="utf-8">
-    <!-- 
-        반드시 2바이트 문자처리에 대한 인코딩속성 셋팅을 해야함.
-     -->
+    <!--  반드시 2바이트 문자처리에 대한 인코딩속성 셋팅을 해야함.-->
+     
+    <!-- 모바일 페이지 뷰포트필수! -->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>쓸쓸하고 찬란하신(神)</title>
     <link rel="stylesheet" href="css/main.css">
     <!-- 외부CSS하나만 불러도 main.css에서 import하고 있는 3개의 기본 CSS가 같이 들어옴! -->
@@ -109,7 +111,8 @@
 
                 </ul>
             </nav>
-
+            <!-- 모바일용 햄버거버튼(ㄷ한자키) -->
+            <button class="ham">≡</button>
         </header>
     </div>
 
@@ -236,6 +239,9 @@
                     </div>
 
                 </div>
+
+                <!-- 드라마문구 이미지 -->
+                <img id = "dtxt" src="images/dkb_main.png" alt="도깨비문구">
 
             </div>
         </main>

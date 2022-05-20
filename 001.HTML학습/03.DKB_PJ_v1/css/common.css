@@ -5,6 +5,10 @@
 /************************** 1. 상단영역 **************************/
 #top {
     /*겉박스 */
+    position: relative;
+    z-index: 9999;
+    /* 포지션이 static이 아니어야 z-index가 적용됨! */
+
     /* 배경색 */
     background-color: #fff;
 
@@ -81,7 +85,7 @@
 /* 탑메뉴 상위 a요소 */
 .tmenu>ul>li>a{
     /* 글자크기 */
-    font-size: 15px;
+    font-size: 1.5rem;
     /* 글자색 */
     color: #000;
     /* 밑줄없앰 */
@@ -147,14 +151,14 @@
     background-color: rgba(247, 172, 31, 0.892);
 } */
 
-ul,
+/* ul,
 ol {
-    /* 리스트박스 기본3無 - 마진0, 패딩0, 리스트스타일없음*/
-    margin: 0;
-    /* 마영오 - 블록요소 가로중앙정렬 */
+    리스트박스 기본3無 - 마진0, 패딩0, 리스트스타일없음
+    margin: 0 auto;
+    마영오 - 블록요소 가로중앙정렬
     padding: 0;
     list-style: none;
-}
+} */
 
 
 /* ul 초기화 */
@@ -249,14 +253,14 @@ ol {
     /* 밑줄없앰 */
     text-decoration: none;
     /* 글자크기 */
-    font-size: 17px;
+    font-size: 1.7rem;
 
     /* 디자인적용위해 블록변경! */
     /* display: block; */
     /* width: 200px; */
     /* height: 50px; */
     /* text-align: center; */
-    line-height: 44px;
+    line-height: 4.4rem;
     /* outline: 2px dotted gray; */
     /* 트랜지션 : 속시이지 */
     /* transition: all .3s; ->트랜지션 불필요*/
@@ -297,7 +301,7 @@ ol {
     좁아도 안떨어짐!(메뉴글자에 많이 설정함) */
     white-space: nowrap;
     
-    height: 0px;
+    height: 0;
     /* padding: 10px; */
     /* outline: 2px dotted darkblue; */
     overflow: hidden;
@@ -345,9 +349,9 @@ ol {
     /* text-align: center; */
 
     /* 글자크기 */
-    font-size: 14px;
+    font-size: 1.4rem;
     /* 줄간격 */
-    line-height: 40px;
+    line-height: 4rem;
     /* 배경색 */
     /* 트랜지션:속시이지 */
     transition: .3s;
@@ -359,6 +363,25 @@ ol {
     background-color: rgb(171, 170, 170);
     color: rgb(33, 48, 62);
 } */
+
+/* 모바일용 햄버거버튼 */
+.ham{
+    position: absolute;
+    top: 18px;
+    right: 20px;
+
+    font-size: 40px;
+      /* 트랜스폼 스케일X축 */
+    transform: scaleX(1.5);
+
+    /* 버튼 기본디자인 없앰 */
+    background-color: transparent;
+    border: none;
+
+    /* 모바일 아닐때 안보임 */
+    display: none;
+}
+
     /************************** 2. 메인영역 **************************/
     .cont {
         /* 높이값 */
@@ -401,7 +424,7 @@ ol {
         color: #222;
         text-decoration: none;
         font-weight: bold;
-        font-size: 14px;
+        font-size: 1.4rem;
         line-height: 2.8;
     }
 
@@ -433,9 +456,9 @@ ol {
         /* margin-top: -35px; */
 
         font-weight: bold;
-        font-size: 14px;
+        font-size: 1.4rem;
         line-height: 2.8;
-        padding: 5px;
+        padding: .5rem;
     }
 
     /* 3-3. 회사주소박스 */
@@ -444,16 +467,16 @@ ol {
     }
     
     .addr address{
-        min-width: 804px;
+        max-width: 804px;
         margin: 0 auto;
         border: 4px double #222;
-        font-size: 14px;
+        font-size: 1.4rem;
         line-height: 2;
         text-align: center;
         /* adrress 기본 이탤릭체 해제 */
         font-style: normal;
 
-        padding: 10px;
+        padding: 1rem;
         /* 박스크기유지 */
         box-sizing: border-box;
     }
