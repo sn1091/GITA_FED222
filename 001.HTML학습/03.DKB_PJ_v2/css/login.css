@@ -13,7 +13,8 @@
 
 .cont{
     min-height: 600px;
-    padding: 0 15px;
+    padding: 15px !important;
+    /* 800px이하 미디어쿼리보다 우선적용위해 !important 사용해서 최우선적용함! */
 }
 
 
@@ -111,7 +112,7 @@ input:focus{
 
 /* 체크박스 영역 */
 .addbx span{
-    margin : 0 auto;
+    margin : 0 15px;
     color : #555;
 }
 
@@ -127,3 +128,53 @@ input:focus{
     color: #222;
     text-decoration: none;
 }
+
+/* 추가 링크 영역바*/
+.bar{
+    font-weight: normal;
+    /* b요소 기본 두껍게 해제 */
+}
+/* 모바일용 바(.bar1), 줄바꿈(.brk)숨기기 */
+.bar1,.brk{
+    display: none;
+}
+
+
+/* 미디어쿼리 690px 이하 시작 */
+@media screen and (max-width: 690px){
+
+    .minput label{
+        display: block;
+        width: auto;
+    }
+
+    .minput input{  
+        display: block;
+        width: 100%;
+    }
+    .btnbx {
+        position: static;
+    }
+    #sbtn{
+        width: 100%;
+        height: 50px;
+        margin-top: 50px
+    }
+
+    /* 추가링크박스 */
+    .addbx{
+
+        line-height: 2.5;
+    }
+    /* 추가링크 바, 줄바꿈 보이기 */
+    .bar1, .brk{
+        display: inline;
+    }
+
+    /* 추가링크 바 숨기기 */
+    .bar2{
+        display: none;
+    }
+}
+    
+/* 미디어쿼리 690px 이하 끝 */

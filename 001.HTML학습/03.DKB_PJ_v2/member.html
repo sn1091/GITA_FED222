@@ -2,12 +2,12 @@
 <html lang="ko">
 
 <head>
-     
-    <!-- 모바일 페이지 뷰포트필수! -->
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>쓸쓸하고 찬란하신(神)- 로그인페이지</title>
-    <link rel="stylesheet" href="css/login.css">
+    <!-- 모바일 페이지 뷰포트필수! -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>쓸쓸하고 찬란하신(神)- 회원가입 페이지</title>
+    <link rel="stylesheet" href="css/member.css">
     <!-- 외부CSS하나만 불러도 main.css에서 import하고 있는 3개의 기본 CSS가 같이 들어옴! -->
 
     <link rel="stylesheet" href="css/media.css">
@@ -85,7 +85,7 @@
                             </ol>
                         </div>
                     </li>
-                    <li class="bgbx m3" >
+                    <li class="bgbx m3">
                         <a href="#">사진첩</a>
                         <div class="smenu">
                             <ol>
@@ -94,11 +94,11 @@
                             </ol>
                         </div>
                     </li>
-                    
+
                     <li>
                         <a href="#">OST</a>
                     </li>
-                   
+
                     <li>
                         <a href="#">시청자 게시판</a>
                     </li>
@@ -114,49 +114,84 @@
     <div id="cont">
         <main class="inbox cont">
             <!-- 1. 로그인 타이틀 -->
-            <h2 class="stit"> Log In</h2>
+            <h2 class="stit">Member</h2>
             <!-- 2. 로그인 박스 -->
             <section class="scont">
                 <form action="process.php" method="post" class="logF">
                     <!-- name은 가져가기 때문에 적어준다! -->
-                    <!-- 아이디박스 -->
-                    <div class="minput">
-                        <label for="mid">아이디</label>
-                        <input type="text" name="mid" id="mid" maxlength="10" placeholder="아이디를 입력하세요.">
-                    </div>
+                    <ul>
+                        <!-- 아이디 -->
+                        <li>
+                            <label for="mid" class="itit">아이디</label>
+                            <input type="text" name="mid" id="mid" maxlength="20" placeholder="아이디를 입력하세요.">
+                            <span class="msg">필수입력</span>
 
-                    <!-- 비밀번호 박스 -->
-                    <div class="minput">
-                        <label for="mpw">비밀번호</label>
-                        <input type="password" name="mpw" id="mpw" maxlength="10" placeholder="비밀번호를 입력하세요.">
-                    </div>
+                        </li>
 
-                    <!-- 버튼영역 -->
-                    <div class="btnbx">
-                        <input type="submit" id="sbtn" value="LOGIN">
-                    </div>
+                        <!-- 비밀번호 -->
+                        <li>
+                            <label for="mpw" class="itit">비밀번호</label>
+                            <input type="password" name="mpw" id="mpw" maxlength="20" placeholder="비밀번호를 입력하세요.">
+                            <span class="msg">필수입력</span>
+                        </li>
 
-                    <!-- 기타링크 -->
-                    <div class="addbx">
-                        <span>
-                            <input type="checkbox" id="chkbx" name="chkbx">
-                            <label for="chkbx">아이디저장</label>
-                        </span>
-                        <!-- 모바일에서 보일 바 .bar1 -->
-                        <b class="bar bar1"> | </b>
-                        <a href="#">아이디찾기</a> 
-                        <!-- 모바일에서 숨길 바 .bar2 -->
-                        <b class="bar bar2"> | </b>
-                        <!-- 모바일에서 줄바꿈 .brk -->
-                        <br class="brk"> 
-                        <a href="#">비밀번호찾기</a>
-                        <b class="bar"> | </b>
-                        <a href="#">회원가입</a>
-                    </div>
+                        <!-- 비밀번호확인 -->
+                        <li>
+                            <label for="mpw2" class="itit">비밀번호확인</label>
+                            <input type="password" name="mpw2" id="mpw" maxlength="20" placeholder="비밀번호확인을 입력하세요.">
+                            <span class="msg">필수입력</span>
+                        </li>
 
+                        <!-- 이름 -->
+                        <li>
+                            <label for="mnm" class="itit">이름</label>
+                            <input type="text" name="mnm" id="mnm" maxlength="20" placeholder="이름를 입력하세요.">
+                            <span class="msg">필수입력</span>
+                        </li>
+
+                        <!-- 성별 -->
+                        <li>
+                            <span class="itit">성별</span>
+
+                            <label for="gen1">남성</label>
+                            <input type="radio" name="gen" id="gen1">
+                            <label for="gen2">여성</label>
+                            <input type="radio" name="gen" id="gen2" checked>
+                            <!-- 라디오버튼의 name 속성을 같은 이름으로 쓰면 그룹핑되어 하나만
+                            선택된다. -->
+                        </li>
+
+                        <!-- 이메일 -->
+                        <li>
+                            <label for="email1" class="itit">이메일</label>
+                            <input type="text" id="email1" name="email1" placeholder="이메일앞주소">
+                            <span class="gol">@</span>
+                            <select name="seleml" id="seleml">
+                                <option value="init">선택해주세요</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="daum.net">daum.net</option>
+                                <option value="hotmail.com">hotmail.com</option>
+                                <option value="hanmail.com">hanmail.com</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="free">직접입력</option>
+                            </select>
+                            <span class="msg">필수입력</span>
+                        </li>
+
+                        <!-- 이메일 직접입력 -->
+                        <li>
+                            <label for="email2"></label>
+                            <input type="text" name="email2" id="email2" placeholder="이메일뒷주소">
+                        </li>
+
+                        <li>
+                            <!-- 서브밋버튼 -->
+                            <input type="submit" value="가입하기" id="btnj">
+                        </li>
+                    </ul>
                 </form>
             </section>
-            
+
         </main>
     </div>
 
@@ -186,15 +221,15 @@
                     </li>
                 </ul>
             </div>
-                <!--3-2. 브랜드 바로가기 -->
-                <div class="brand">
-                    <select name="sel" id="sel">
-                        <option value="init">브랜드 바로가기</option>
-                        <option value="tvn">tvN</option>
-                        <option value="ocn">OCN</option>
-                        <option value="mnet">MNET</option>
-                    </select>
-                    <!-- 
+            <!--3-2. 브랜드 바로가기 -->
+            <div class="brand">
+                <select name="sel" id="sel">
+                    <option value="init">브랜드 바로가기</option>
+                    <option value="tvn">tvN</option>
+                    <option value="ocn">OCN</option>
+                    <option value="mnet">MNET</option>
+                </select>
+                <!-- 
                         select 요소 : 지정된 값을 선택하는 입력요소
                         - 하위필수요소 -> option요소 : 각 선택항목
                         -> 유의사항 : 값을 선택할 경우 option의
@@ -203,20 +238,20 @@
                         꺽쇠사이에 있는 데이터를 읽어간다.
 
                      -->
-                </div>
-                <!-- 3-3. 회사주소박스 -->
-                <div class="addr">
-                    <address>
-                        (주)씨제이이엔엠 CJ ENM 대표이사 강호성, 허민호 <br>
-                        주소 (03926) 서울시 마포구 상암산로 66 사업자 등록번호 106-81-51510 개인정보보호책임자 김재환 <br>
-                        © CJ ENM. All Rights Reserved.
-                    </address>
-                </div>
+            </div>
+            <!-- 3-3. 회사주소박스 -->
+            <div class="addr">
+                <address>
+                    (주)씨제이이엔엠 CJ ENM 대표이사 강호성, 허민호 <br>
+                    주소 (03926) 서울시 마포구 상암산로 66 사업자 등록번호 106-81-51510 개인정보보호책임자 김재환 <br>
+                    © CJ ENM. All Rights Reserved.
+                </address>
+            </div>
 
-                <!-- 3-4. 하단로고박스 -->
-                <div class="blogo">
-                    <img src="images/blogo.png" alt="하단로고">
-                </div>
+            <!-- 3-4. 하단로고박스 -->
+            <div class="blogo">
+                <img src="images/blogo.png" alt="하단로고">
+            </div>
         </footer>
     </div>
 </body>
