@@ -1,205 +1,198 @@
 @charset "utf-8";
 /* 도깨비 메인 페이지 미디어쿼리 - media.css */
 
-/******************************* 1070px 이하 미디어쿼리 시작 *******************************/
-@media screen and (max-width:1070px) {
+/************** 1070px 이하 미디어쿼리 시작 **************/
+@media screen and (max-width: 1070px) {
+  /* 1. 전체 rem단위 글자 변경위한 
+    root 글자크기 변경 */
+  html {
+    font-size: 8px;
+  }
 
-    /* 1. 전체 rem단위 글자 변경위한 root글자크기 변경 */
-    html {
-        font-size: 8px;
-    }
+  /* 2. 상단영역 중앙박스  */
+  .top {
+    height: 120px;
+  }
 
-    /* 2. 상단영역 중앙박스 */
-    .top {
-        height: 119px;
-    }
+  /* 3. GNB메뉴 */
+  .gnb ul {
+    width: 495px;
+  }
 
-    /* .gnb>ul>li.bgbx::after{
-        margin-top: 1px;
-    } */
+  /* 4. 탑메뉴 */
+  .tmenu > ul > li > a {
+    line-height: 1.7;
+  }
 
-    /* 3.GNB 메뉴 */
-    .gnb ul {
-        width: 495px;
-    }
+  /* 5. 개별서브메뉴 오버시
+    + 가상요소 서브배경 오버시 */
 
-    /* 4. 탑메뉴 */
-    .tmenu>ul>li>a {
-        line-height: 1.7;
-    }
+  /* 첫번째메뉴 - 3개 */
+  .gnb > ul > li:nth-child(1):hover .smenu,
+  .gnb > ul > li.m1:hover::after {
+    height: 96px;
+    /* 32*3 */
+  }
 
-    /* 5. 개별 서브 메뉴 오버시 + 가상요소 서브배경 오버시*/
+  /* 세번째메뉴 - 4개 */
+  .gnb > ul > li:nth-child(3):hover .smenu,
+  .gnb > ul > li.m2:hover::after {
+    height: 128px;
+    /* 32*4 */
+  }
 
+  /* 네번째메뉴 - 2개 */
+  .gnb > ul > li:nth-child(4):hover .smenu,
+  .gnb > ul > li.m3:hover::after {
+    height: 64px;
+    /* 32*2 */
+  }
 
-    /* 첫번째 li오버시 가상요소배경 보이기 */
-    .gnb>ul>li:nth-child(1):hover .smenu,
-    .gnb>ul>li.m1:hover::after {
-        height: 96px;
-    }
+  /* 6. 하단링크 */
+  .blink ul {
+    width: 680px;
+  }
 
-    /* 두번째 li오버시 가상요소배경 보이기 */
-    .gnb>ul>li:nth-child(3):hover .smenu,
-    .gnb>ul>li.m2:hover::after {
-        height: 128px;
-    }
+  /* 7. 하단박스 */
+  .info {
+    /* 높이값 자동전환 */
+    height: auto;
+    padding-bottom: 15px;
+  }
 
-    /* 세번째 li오버시 가상요소배경 보이기 */
-    .gnb>ul>li:nth-child(4):hover .smenu,
-    .gnb>ul>li.m3:hover::after {
-        height: 64px;
-    }
-
-    /* 6. 하단링크 */
-    .blink ul {
-        width: 680px;
-    }
-
-    /* 7. 하단박스 */
-    .info {
-        height: auto;
-        padding-bottom: 15px;
-    }
-
-    /* 8. 브랜드 바로가기 */
-    .brand {
-        display: none;
-    }
+  /* 8. 브랜드 바로가기 */
+  .brand {
+    display: none;
+  }
 }
 
-/******************************* 1070px 이하 미디어쿼리 끝 *******************************/
+/************** 1070px 이하 미디어쿼리 끝   **************/
 
+/************** 800px이하 미디어쿼리 시작 **************/
+@media screen and (max-width: 800px) {
+  /* 1. 숨기기 */
+  /* GNB메뉴, 서브메뉴, 서브메뉴배경 가상요소, 
+    , 탑메뉴, 문구이미지, 하단링크 */
+  .gnb,
+  .tmenu,
+  #dtxt,
+  .blink,
+  .smenu,
+  .gnb > ul > li.bgbx::after {
+    display: none;
+  }
 
-/******************************* 800px 이하 미디어쿼리 시작 *******************************/
-@media screen and (max-width:800px) {
+  /* 2. 높이값 자동 : 상단영역, 컨텐츠영역 */
+  .top,
+  .cont {
+    height: auto;
+  }
 
-    /* 1. 숨기기 */
-    /* GNB메뉴, 서브메뉴, 서브메뉴배경, 가상요소, 탑메뉴, 문구이미지, 하단링크 */
-    .gnb,
-    .tmenu,
-    #dtxt,
-    .blink,
-    .smenu,
-    .gnb>ul>li.bgbx::after
-    
-     {
-        display: none;
-    }
+  /* 3. 햄버거버튼 보이게함 */
+  .ham {
+    /* 포지션이 앱솔루트이면 기본 block이다! */
+    display: block;
+  }
+  /* 햄버거 버튼 변경 
+    (전체메뉴 보일때만->.top.on일때만) */
+  .top.on .ham {
+    z-index: 1; /* 로고보다위 */
+    color: #fff;
+    transform: scale(1.5);
+  }
+  /* 햄버거 버튼 x버튼으로 문자모양변경 
+    (전체메뉴 보일때만->.top.on일때만) */
+  .top.on .ham::before {
+    content: "×";
+  }
 
-    /* 2.높이값 자동 : 상단영역, 컨텐츠영역  */
-    .top,
-    .cont {
-        height: auto;
-    }
+  /* 4. 캐릭터박스 비율변경 */
+  .cat {
+    width: 99%;
+  }
 
-    /* 3. 햄버거 버튼 보이게 하기 */
-    .ham {
-        display: block;
-     
-    }
+  /* 5. 컨텐츠 영역 */
+  .cont {
+    /* 패딩: 위아래 양쪽 */
+    padding: 100px 0 30px;
+  }
 
-    /* 햄버거 버튼 스케일변경
-    (전체메뉴 보일때만) -> .top.on일 때만 */
-    .top.on .ham{
-        z-index: 1;
-        color: #fff;
-        transform: scale(1.5);
-    }
+  /* 6. 캐릭터박스 오버시 이미지박스 */
+  .cat:hover .ci {
+    margin-top: 0;
+  }
 
-    /* 햄버거 버튼 x버튼으로 문자모양변경 */
-    .top.on .ham::before{
-        content: '×';
-    }
+  /* 7. 캐릭터 설명 타이틀 */
+  .cd h3 {
+    font-size: 3.5rem;
+    /* 패딩: 위아래 양쪽 */
+    padding: 1.5rem 2rem;
+  }
 
+  /* 8. 캐릭터 설명 문단 */
+  .cd p {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+    padding: 1.7rem;
+    margin: 0;
+  }
 
-    /* 4. 캐릭터박스 비율변경 */
-    .cat {
-        width: 99%;
-    }
+  /* 9. 회사주소 */
+  .addr address {
+    font-size: 1.7rem;
+    padding: 1.1rem;
+  }
 
-    /* 5. 컨텐츠 영역 */
-    .cont {
-        padding: 30px 0;
-    }
+  /* 10. 전체메뉴 GNB 변경 */
+  /*  GNB 보이기->.top.on일때만 */
+  .top.on .gnb {
+    display: block;
+  }
+  .gnb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0 0 0 / 70%);
+    /* 
+      rgba 2가지 표기법
+      1. rgba(red색,green색,blue색,alpha값)
+        - alpha값은 투명도 (0~1)
+      2. rgb(red색 green색 blue색 / alpha값%)
+        - alpha값은 투명도 (0%~100%)
+    */
+  }
 
-    /* 6. 캐릭터박스 오버시 이미지박스 */
-    .cat:hover .ci {
-        margin-top: 0;
-    }
+  .gnb ul {
+    width: auto;
+    margin-top: 20vh;
+  }
 
-    /* 8. 캐릭터 설명 문단 */
-    .cd h3 {
-        font-size: 3.5rem;
-        padding: 1.5rem 2rem;
-    }
+  .gnb > ul > li {
+    float: none;
+    height: 10vh;
+    padding: 0;
+    text-align: center;
+  }
 
-    .cd p {
-        font-size: 3.2rem;
-        line-height: 4.2rem;
-        padding: 1.7rem;
-        margin: 0;
-    }
+  /* li 하위 a요소 */
+  .gnb > ul > li > a {
+    color: #fff;
+    font-size: 4vh;
+    line-height: 10vh;
+  }
 
-    /* 9. 회사주소 */
-    .addr address{
-        font-size: 1.7rem;
-        padding: 1.1rem;
-    }
+  /* li마우스 오버시 밑줄 색변경 */
+  .gnb > ul > li:hover > a {
+    border-bottom-color: #fff;
+  }
 
-    /* 10. 전체메뉴 GNB 변경 */
-    /* GNB 보이기 -> .top.on 일때만 보이기 */
-    .top.on.gnb{
-          display: block;
-    }
-    
-    .gnb {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgb(0 0 0 / 60%);
-        /* rgba 2가지 표기법
-        1. rgba(red, green,blue,alpha) 
-        - 알파값은 투명도 (0~1)
-        2. rgb(red,green,blue/alpha값%)
-        - 알파값은 투명도(0%~100%)
-        */
-    
-    }
-    .gnb> ul {
-        width: auto;
-        margin-top: 20vh;
-    }
-    
-    .gnb>ul>li {
-        /* 블록요소 옆으로 흐르게 */
-        float: none;
-        height: 10vh;/* 양쪽패딩 */
-        padding: 0;
-        text-align: center;
-    }
-    
-    .gnb>ul>li>a {
-        /* 글자색 */
-        color: #fff;
-    
-        /* 글자크기 */
-        font-size: 4vh;
-    
-        line-height: 10vh;
-    }
-
-    /* li 마우스 오버시 밑줄 색 변경 */
-    .gnb>ul>li:hover>a{
-        border-bottom-color: white;
-    }
-    
-    /* 전체메뉴 보일때 로고 맨위 */
-    #logo{
-        position: relative;
-        z-index: 1;
-    }
+  /* 전체메뉴 보일때 로고 맨위 */
+  #logo {
+    position: relative;
+    z-index: 1;
+  }
 }
 
-
-/******************************* 800px 이하 미디어쿼리 끝 *******************************/
+/************** 800px이하 미디어쿼리 끝   **************/
