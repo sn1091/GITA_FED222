@@ -20,7 +20,9 @@
             list-style: none;
         }
 
-
+        h1{
+            text-align: center;
+        }
         /* ul 초기화 */
         .gnb ul{
            /* 플렉스박스 */
@@ -79,10 +81,14 @@
     
         /* 서브메뉴 */
         .smenu{
+            /* 젠틀 앱솔루트 - a요소를 존중하여 아래위치 */
+            position: absolute;
+            width: 200px;
+            /* 판타롱스타킹 앱솔루트 - width크기가 내용만큼 줄어드므로 특정크기를 줌! */
+
             /* 트랜지션없이 숨기기 */
             display: none;
             background-color: rgb(33, 48, 62);
-
             
         }
         /* 상위메뉴 li 마우스 오버시 하위메뉴박스 보이기 */
