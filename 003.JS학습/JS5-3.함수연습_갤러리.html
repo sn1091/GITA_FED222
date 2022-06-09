@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling Gallery</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            /* 보이는 화면 기준채우기 */
+        }
+
+        body {
+            background: url(./images/space.jpg) no-repeat center/auto 200%;
+        }
+
+        /* a요소 */
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* 갤러리 부모박스 */
+        .wrap {
+            position: relative;
+            /* 부모자격 - #mini */
+            width: 520px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 20px;
+            /* outline: 2px dotted red; */
+        }
+
+        /* 메인이미지박스 */
+        #mbox {
+            display: inline-block;
+        }
+
+        /* 이미지 중간맞추기 */
+        #mbox img {
+            vertical-align: -79px;
+        }
+
+        /* 이미지 텍스트 출력박스 */
+        .imgtxt {
+            text-align: center;
+            color: red;
+            text-shadow: 1px 1px 1px #777;
+        }
+
+        /* 자동넘김 버튼박스 */
+        .abtn {
+            text-align: center;
+        }
+
+        .abtn button {
+            font-size: 1.5rem;
+        }
+
+        /* 처음에 멈춤버튼 숨기기 */
+        .stop {
+            display: none;
+        }
+
+        /* 미니언즈 */
+        #mini {
+            position: absolute;
+            top: 80%;
+            left: -20%;
+            /* 부모는? #wrap */
+            width: 150px;
+            transform: rotate(720deg);
+            transition: all 1.5s ease-out;
+        }
+
+        /* 미니언즈 변경클래스1 */
+        #mini.on1 {
+            top: 0;
+            left: 0;
+            transform: rotate(0deg);
+        }
+
+        /* 미니언즈 변경클래스2 */
+        #mini.on2 {
+            top: 0;
+            left: 80%;
+            transform: rotate(-720deg);
+        }
+    </style>
+    <!-- JS코딩구역 -->
+    <script>
+       
+        //////////// 로드 구역 ///////////////
+        window.addEventListener("load",()=>{
+            console.log("로딩완료!");
+
+            /*************************************************
+                [ 롤링갤러리 기능정의 ]
+
+                - 버튼 클릭시 메인 이미지 변경하기
+                1. 오른쪽버튼 클릭시 메인 이미지가 
+                다음 순번의 이미지로 변경된다.
+                (단, 마지막 이미지 다음 이미지는 처음 이미지다)
+                2. 왼쪽버튼 클릭시 메인이미지가 이전 순번의
+                이미지로 변경된다.
+                (단, 처음이미지 이전 이미지는 마지막 이미지다)
+                ____________________________________
+
+                [ 기능구현 설계 ]
+
+                1. 이미지 번호를 전역변수로 설정한다.
+                2. 버튼클릭시 전역변수 이미지번호를 증감하여
+                실제로 변경될 이미지 코드의 src속성값으로 설정한다.
+                3. 증감시 오른쪽버튼은 ++(1씩증가)
+                    왼쪽버튼은 --(1씩감소)
+                4. 제한조건 :
+                    마지막 다음번호는 1
+                    처음 이전번호는 7
+                    (1~7까지 7개의 이미지가 있다)
+                    if문으로 조건을 체크한다!
+
+            *************************************************/
+            //  함수 바깥쪽에 전역변수 선언 및 할당!
+
+            // 1. 이미지 번호 변수
+            let inum =1;
+
+            // 변경대상: #mbox img
+            let ming = document.querySelector("#mbox img");
+
+            // 이벤트 대상 : 이동버튼
+            // 오른쪽버튼 - .rb
+           /*  let rb =  */
+           document.querySelector(".rb").onclick = () => { 
+                // 1. 호출 확인
+                console.log("오버!");
+                // 2. 이미지 전역변수 1씩 증가
+                inum++;
+                if(inum===8) inum = 1; //한계수 체크
+                // 2. 변경대상 : #mbox img -> ming변수
+                // 3. 변경내용 : 이미지의 src속성변경
+                ming.src = `./images/img${inum}.jpg`;
+           }; ///////// click ////////////
+           
+           // 왼쪽버튼 - .rb
+          /*  let rb =  */
+          document.querySelector(".lb").onclick = () => { 
+               // 1. 호출 확인
+               console.log("왼버!");
+               // 2. 이미지 전역변수 1씩 증가
+               inum--;
+               if(inum===0) inum = 7; //한계수 체크
+               // 2. 변경대상 : #mbox img -> ming변수
+               // 3. 변경내용 : 이미지의 src속성변경
+               ming.src = `./images/img${inum}.jpg`;
+               
+          }; ///////// click ////////////
+
+
+        }); ////////////// 로드 구역///////////
+    </script>
+</head>
+
+<body>
+    <!-- 갤러리 박스 -->
+    <div class="wrap">
+        <!-- 타이틀 -->
+        <h1>Rolling Gallery</h1>
+        <!-- 왼쪽이동버튼 -->
+        <a href="#" class="btn lb">
+            <img src="./images/left_btn.png" alt="왼쪽버튼">
+        </a>
+        <!-- 메인이미지박스 -->
+        <div id="mbox">
+            <img src="./images/img1.jpg" alt="메인이미지">
+        </div>
+        <!-- 오른쪽이동버튼 -->
+        <a href="#" class="btn rb">
+            <img src="./images/right_btn.png" alt="오른쪽버튼">
+        </a>
+        <!-- 미니언즈 -->
+        <img src="./images/Minions.png" alt="미니언즈" id="mini">
+    </div>
+
+    <!-- 이미지별 설명 텍스트 출력박스 -->
+    <h2 class="imgtxt"></h2>
+
+    <!-- 자동넘김 버튼박스 -->
+    <div class="abtn">
+        <button class="start">자동넘김</button>
+        <button class="stop">멈춤</button>
+    </div>
+
+</body>
+
+</html>
