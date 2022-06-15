@@ -252,14 +252,26 @@ body *{
      height: 788px;
      background: url(../images/bg.jpg) no-repeat;
  }
+ /* 가상요소로 패팅탑 비율높이값 생성 */
+.cont::before{
+    content: '';
+    display: block;
+    padding-top: 65.66%;
+    /* 
+        비율계산하기
+        1200 : 788 = 100 : x
+        x = 788 * 100 / 1200
+        x = 65.66%
+    */
+}
 /* 2-1. 스크린박스 */
 #screen{
     position: absolute;
-    top: 136px;
-    left: 257px;
+    top: 17.2%;
+    left: 21.3%;
     /* 부모는? .cont */
-    width: 701px;
-    height: 397px;
+    width: 58.6%;
+    height: 50.6%;
     background-color: #000;
 }
 /* 스크린 아이프레임 */
@@ -272,7 +284,7 @@ body *{
 /* 2-2. 예고편 선택메뉴 */
 .mlist{
     position: absolute;
-    bottom: 58px;
+    bottom: 7%;
     /* 부모는 ? .cont */
     /* 중앙이동 */
     left: 50%;
@@ -297,7 +309,7 @@ body *{
     position: relative;
     overflow: hidden; 
 
-    margin: 0 9px;
+    margin: 0 min(0.8vw,9px);
     /* x축 회전 */
     transform: rotateX(40deg);
     /* 회전축 하단변경 */
