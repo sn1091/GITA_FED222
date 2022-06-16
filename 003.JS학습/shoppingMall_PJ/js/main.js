@@ -67,7 +67,7 @@ let prot = 0; // 0 - 허용, 1- 금지
 for(let x of abtn){ // x는 a요소 자신
     x.onclick = () => {
 
-        console.log("광클막기",prot);
+        // console.log("광클막기",prot);
         ////////// 광클금지 ///////////////////////
         if(prot) return; // 돌아가!
         prot = 1; // 잠금!
@@ -75,6 +75,9 @@ for(let x of abtn){ // x는 a요소 자신
         // 타임아웃으로 슬라이드이동 후
         // 잠금설정을 prot = 0으로 해제
         //////////////////////////////////////////
+
+        // 인터발 지우기 함수호출!
+        clearAuto();
 
         // 1. 오른쪽버튼 여부
         let isR = x.classList.contains("ab2");
@@ -84,24 +87,9 @@ for(let x of abtn){ // x는 a요소 자신
 
         // 2. 오른쪽/왼쪽버튼 분기하기
         if(isR){ // 오른쪽버튼 ///
-            // 1. 슬라이드 left: -100% + 트랜지션
-            slide.style.left = "-100%";
-            slide.style.transition = "left .4s ease-out";
 
-            // 이동 후 실행 -> 이동시간은 0.4초
-            // setTimeout(함수,시간) -> 일정시간 후 한번 실행!
-            setTimeout(() => {
-            // 2. 첫번째 li를 맨뒤로 이동
-            // 첫번째 li
-            let fli = slide.querySelectorAll("li")[0];
-            // 맨뒤로 이동
-            slide.appendChild(fli);
-
-            // 3. 동시에 left값 0
-            slide.style.left = "0";
-            // 이때 트랜지션 해제!
-            slide.style.transition ="none";
-            }, 400); ///// 타임아웃 ////////
+        // 오른쪽 이동함수 호출!
+           goRight();
             
         } ////////////////// if ///////////
 
@@ -127,10 +115,24 @@ for(let x of abtn){ // x는 a요소 자신
             slide.style.left = "0";
             slide.style.transition = "left .4s ease-out";
             }, 10); ///// 타임아웃 /////
-          
+            
+            // 4. 블릿작동 함수 호출
+            goIndic(0); //파라미터값으로 0 ->왼쪽은 0
+            // 파라미터값으로 isR
+            //  즉,오른쪽/왼쪽 정보값을 보내준다!
         } ///////////// else //////////
 
-        // 4. 공통기능 : 블릿변경하기
+
+    }; /////// click////////
+
+} ///// for of /////////////////
+
+/********************************************************  
+    함수명 : goIndic
+    기능 : 블릿 표시자 작동하기
+********************************************************/
+const goIndic = isR => { //isR : 오른쪽 1, 왼쪽 0
+      // 공통기능 : 블릿변경하기
         // 블릿 class="on" 지우기 초기화
         for(let x of indic) x.classList.remove("on");
 
@@ -155,9 +157,67 @@ for(let x of abtn){ // x는 a요소 자신
         // 형변환하지 않아도 숫자이면 숫자형으로 변환해줌~!
 
 
-    }; /////// click////////
+}; ////////// goIndic 함수 //////////////// 
+///////////////////////////////////////////
 
-} ///// for of /////////////////
+/********************************************************  
+    함수명 : goRight
+    기능 : 오른쪽 슬라이드 이동기능
+********************************************************/
+const goRight= () => {
+     // 1. 슬라이드 left: -100% + 트랜지션
+     slide.style.left = "-100%";
+     slide.style.transition = "left .4s ease-out";
+
+     // 이동 후 실행 -> 이동시간은 0.4초
+     // setTimeout(함수,시간) -> 일정시간 후 한번 실행!
+     setTimeout(() => {
+     // 2. 첫번째 li를 맨뒤로 이동
+     // 첫번째 li
+     let fli = slide.querySelectorAll("li")[0];
+     // 맨뒤로 이동
+     slide.appendChild(fli);
+
+     // 3. 동시에 left값 0
+     slide.style.left = "0";
+     // 이때 트랜지션 해제!
+     slide.style.transition ="none";
+     }, 400); ///// 타임아웃 ////////
+
+    // 4. 블릿작동함수 호출
+    goIndic(1); //오른쪽은 전달값 1
+}; /////////// goRight 함수 ///////////
+//////////////////////////////////////
+
+// 인터발용변수
+let autoI;
+let autoT;
+
+
+// 인터발 셋팅 함수 ///////////////
+const autoCall= () =>
+autoI = setInterval(goRight,2000);
+
+// 인터발 셋팅 함수 최초호출!
+autoCall();
+
+// 인터발 지우기 함수////////////////
+const clearAuto = () => {
+    console.log("인터발지움!");
+    // 인터발지우기
+    clearInterval(autoI);
+
+    // 타임아웃지우기(실행쓰나미방지!)
+    clearTimeout(autoT);
+
+    // 일정시간후 인터발 셋팅(4초후)
+    autoT = setTimeout(autoCall,4000);
+    // 매번 타임아웃을 변수에 담고 먼저 지우기 때문에
+    // 최종적으로 남는 타임아웃은 하나뿐이다!
+    // 따라서 타임아웃 실행 쓰나미가 발생하지 않는다
+
+}; ///////// clearAuto 함수 ///////////
+
 
 
 } ////////// loadFn 함수 ///////////

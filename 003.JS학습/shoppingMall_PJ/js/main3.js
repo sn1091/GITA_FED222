@@ -62,6 +62,8 @@ function loadFn() {
             // 잠금설정을 prot = 0으로 해제
             //////////////////////////////////////////
 
+            // 인터발 지우기 함수 호출!
+            clearAuto();
             // 1. 오른쪽버튼 여부
             let isR = x.classList.contains("ab2");
             // console.log(".ab2인가?",isR);
@@ -85,22 +87,70 @@ function loadFn() {
 
             // console.log("슬번:",sno);
 
-            // 3. 초기화
-            for(let y of slide)
-                y.classList.remove("on");
-
-            // 4. 해당 순번 슬라이드 li에 class="on"
-            slide[sno].classList.add("on");
-
-            // 5. 블릿 초기화
-            for(let z of indic)
-                z.classList.remove("on");
-
-            // 6. 해당순번 블릿 li에 class="on"
-            indic[sno].classList.add("on");
+            // 3. 슬라이드 + 블릿 변경 함수 호출!
+            goslide();
 
         } ////// click ///////////////////
 
     } /////////////// for of ////////////
+
+    /************************************************
+        함수명 : goSlide
+        기능 : 슬라이드 변경하기 
+    
+    ************************************************/
+    const goslide = () => {
+        // 1. 슬라이드 초기화
+        for (let y of slide)
+            y.classList.remove("on");
+
+        // 2. 해당 순번 슬라이드 li에 class="on"
+        slide[sno].classList.add("on");
+
+        // 3. 블릿 초기화
+        for (let z of indic)
+            z.classList.remove("on");
+
+        // 4. 해당순번 블릿 li에 class="on"
+        indic[sno].classList.add("on");
+
+    }; ///////////// goSlide 함수 ////////////
+
+    // 인터발용변수
+    let autoI;
+
+    // 타임아웃용 변수
+    let autoT;
+
+
+    // 인터발 셋팅 함수 ///////////////
+    const autoCall = () =>
+        autoI = setInterval(()=>{
+            sno++;
+            if (sno === 5) sno = 0;
+            // 슬라이드 변경 함수 호출!
+            goslide();
+        }, 2000);
+
+    // 인터발 셋팅 함수 최초호출!
+    autoCall();
+
+    // 인터발 지우기 함수////////////////
+    const clearAuto = () => {
+        console.log("인터발지움!");
+        // 인터발지우기
+        clearInterval(autoI);
+
+        // 타임아웃지우기(실행쓰나미방지!)
+        clearTimeout(autoT);
+
+        // 일정시간후 인터발 셋팅(4초후)
+        autoT = setTimeout(autoCall, 4000);
+        // 매번 타임아웃을 변수에 담고 먼저 지우기 때문에
+        // 최종적으로 남는 타임아웃은 하나뿐이다!
+        // 따라서 타임아웃 실행 쓰나미가 발생하지 않는다
+
+    }; ///////// clearAuto 함수 ///////////
+
 
 } /////// loadFn 함수 ///////////////

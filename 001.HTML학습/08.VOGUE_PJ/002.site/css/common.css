@@ -35,7 +35,15 @@
     /* 위치조정 */
     margin-top: 14px;
     margin-right: 17px;
+
+    /* 트랜지션 : 속시이지*/
+    transition: opacity.2s;
 }
+/* a요소 오버시 */
+.sns a:hover{
+    opacity: .7;
+}
+
 
 /* 트위터 아이콘 */
 .sns a.fi-twitter{
@@ -78,7 +86,14 @@
 .smbx>li:first-child{
     border-right: 1px solid #e5e5e5;
 }
-
+/* 첫번째 사이드 메뉴 마우스 오버시 커서모양 */
+.smbx>li:first-child > a{
+    cursor: auto;
+    /* 자동은 글자는 I모양,일반은 화살표 */
+    /* 
+    참고) CSS 커서 모양 종류
+    https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor */
+}
 /* 사이드메뉴 서브박스 */
 .smsub{
     position: absolute;
@@ -115,6 +130,42 @@
 .smsub a:hover{
     background-color: #fafafa;
     color: #333;
+}
+
+/* 1-2. 로고박스 */
+.logo{
+    text-align: center;
+    margin-bottom: 11px;
+}
+
+/* 1-4. GNB 박스  */
+.gnb{
+    /* 글자설정 */
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    line-height: 40px;
+    padding: 0 30px;
+}
+
+.gnb>ul{
+    /* 플렉스박스 */
+    display: flex;
+    justify-content: center;
+}
+
+/* 리스트요소 */
+.gnb li{
+    padding-right: 45px;
+}
+/* 마지막 li는 패딩 없음 */
+.gnb li:last-child{
+    padding-right: 0;
+}
+
+/* 마지막 li의 a 돋보기 */
+.gnb li:last-child a{
+    font-weight: bold;
+    padding-top: 12px;
 }
 
 /*********************************** 2. 하단영역 ***********************************/
