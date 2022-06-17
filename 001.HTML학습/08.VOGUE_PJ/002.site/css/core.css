@@ -148,7 +148,7 @@ font-family: 'Roboto Condensed', sans-serif;
 
 /* .cbx에 마우스 오버시 보더애니 */
 .cbx:hover::after{
-    border: 20px solid red;
+    border: min(20px,1.6vw) solid red;
 }
 
 /* 컨텐츠 타이틀박스 */
@@ -161,10 +161,13 @@ font-family: 'Roboto Condensed', sans-serif;
     /* 글자설정 */
     font-family: pist,nbg;
     /* 웹폰트 영문체(Pistilli), 한글체(나눔바른고딕) */
-    font-size: 33px;
+    font-size: min(33px,3vw);
+    /* min()을 사용하여 작은크기를 선택으로 최대 글자크기를 제한함! */
     font-weight: normal;
+    text-align: center;
     color: #fff;
-    padding: 50px;
+    padding: min(50px,3.4vw);
+    /* min()을 사용하여 작은크기를 선택으로 최대 패딩크기를 제한함! */
 
     /* 박스크기유지 */
     box-sizing: border-box;
@@ -184,3 +187,20 @@ font-family: 'Roboto Condensed', sans-serif;
     height: 0;
     overflow: hidden;
   }
+
+  /* 공통 적용 배경색 클래스 */
+  .bgc{
+    background-color: #f9f9f9;
+  }
+
+  /* 등장액션 클래스 */
+.scAct{
+    transform: translateY(40%);
+    opacity: 0;
+    transition: 1.2s cubic-bezier(0.56, 0.15, 0, 0.76);
+}
+
+.scAct.on {
+    transform: translateY(0px);
+    opacity: 1;
+}

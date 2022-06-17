@@ -69,7 +69,7 @@ for(let x of abtn){ // x는 a요소 자신
 
         console.log("광클막기",prot);
         ////////// 광클금지 ///////////////////////
-        if(prot) return; // 돌아가!
+        if(prot) return false;  // 돌아가!
         prot = 1; // 잠금!
         setTimeout(()=>prot=0,410);
         // 타임아웃으로 슬라이드이동 후
@@ -120,6 +120,8 @@ for(let x of abtn){ // x는 a요소 자신
             goIndic(0);
         } ///////////// else //////////
 
+        // a요소 기본이동막기
+        return false;
 
     }; /////// click////////
 
@@ -189,6 +191,7 @@ const goRight= () => {
 
 // 인터발용변수
 let autoI;
+
 let autoT;
 
 
