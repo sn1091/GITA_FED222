@@ -1,5 +1,14 @@
 // 보그 PJ 공통기능 JS - common.js /////////
 
+// 페이지명 변수
+let pname = location.pathname.split('/');
+// location.pathname 페이지명이 포함된 전체경로
+// split(자를문자열)-> 배열에 담는다!
+pname = pname[pname.length-1];
+
+pname = pname.split(".")[0]; //페이지이름만!
+console.log("페이지이름:",pname);
+
 // 스크롤위치값 변수
 let scTop;
 // 슬림상단메뉴 대상 : #top
@@ -43,12 +52,16 @@ window.addEventListener("DOMContentLoaded",()=>{
         pos = 0;
     }); ///// click /////
 
-    // 메인 컨텐츠박스 스크롤 등장액션 클래스 적용하기
-    let contbx = document.querySelectorAll(".cont>section");
-    contbx.forEach((ele,idx)=>{ //ele - 요소자신, idx - 요소순번
+    // 메인페이지(index.html)에서만 적용!
+    if(pname==="index")
+    {
+        // 메인 컨텐츠박스 스크롤 등장액션 클래스 적용하기
+        let contbx = document.querySelectorAll(".cont>section");
+        contbx.forEach((ele,idx)=>{ //ele - 요소자신, idx - 요소순번
        if(idx!==0) ele.classList.add("scAct");
-    }); ///// forEach ////////////
-    // for(let x of contbx) x.classList.add("scAct");
+        }); ///// forEach ////////////
+        // for(let x of contbx) x.classList.add("scAct");
+    }
 
 /******************************************** 
     [ HTML 컬렉션에서 forEach() 메서드 사용하기 ]
@@ -79,7 +92,7 @@ window.addEventListener("DOMContentLoaded",()=>{
     });///////// forEach //////////////////////////////////
 
      // 위치배열변수 확인
-     console.log(scPos);
+    //  console.log(scPos);
 
 }); //////////////// 로드구역 /////////////////////////
 
@@ -91,12 +104,12 @@ window.addEventListener("DOMContentLoaded",()=>{
 ********************************************/
 function scAction(seq){ //seq - 순번
 
-    console.log("체크:",seq);
+    // console.log("체크:",seq);
 
     // 해당범위이면 해당순번의 등장요소에 class="on"
     if(scTop>= scPos[seq]-winH && scTop < scPos[seq]){
         scAct[seq].classList.add("on");
-        console.log("적용:",seq);
+        // console.log("적용:",seq);
     }
      // 100px 미만일경우 클래스 "on" 제거
      else 
@@ -113,6 +126,10 @@ function scAction(seq){ //seq - 순번
 ********************************************/
 
 window.addEventListener('scroll', ()=> {
+
+    // 로그인, 회원가입 페이지는 스크롤셋팅 안함!
+    if(pname === "login" || pname ==="member") return;
+
     // 스크롤 위치표시
     scTop = this.scrollY;
     // console.log("스위:",scTop);
