@@ -322,6 +322,8 @@
     padding-top: 6px;
     padding-bottom: 30px;
     background-color: #fff;
+    overflow: auto;
+    height: calc(100vh - 54px);
     display: none;/* 처음에 안보임 */
 }
 /* 1.5-1.모바일 GNb */

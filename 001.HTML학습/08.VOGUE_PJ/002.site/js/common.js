@@ -24,6 +24,73 @@ const winH = window.innerHeight/3 * 2;
 
 //////////////////////// 로드구역 //////////////////////
 window.addEventListener("DOMContentLoaded",()=>{
+
+    // 로그인, 회원가입, 갤러리 html메뉴코드 넣기
+    // html 태그 코드 만들기
+    let hcode=`
+    <a href="#" class="fi fi-laptop" title="로그인">
+        <span class="ir">
+            로그인
+        </span>
+    </a>
+    <a href="#" class="fi fi-user-secret" title="회원가입">
+        <span class="ir">
+            회원가입
+        </span>
+    </a>
+    <a href="#" class="fi fi-camera" title="갤러리">
+        <span class="ir">
+            갤러리
+        </span>
+    </a>
+    `;
+
+    // 로그인, 회원가입, 갤러리 아이콘 넣기
+    // 대상 : .sns a:last-child
+    // 변경 : 대상요소 앞에 a 코드를 삽입한다
+    // 메서드 : before(요소) -> 선택요소 앞에 형제삽입
+    // -> 참고비교) after(요소) -> 선택요소 뒤에 형제요소 삽입
+    $('.sns a').each(function(){
+        // a요소 각각에 title로 내부글자를 넣어준다!
+        $(this).attr("title",$(this).text().trim());
+        // attr(속성명,속성값), trim()앞뒤공백제거
+    }) ///// each //////
+    .last().before(hcode);
+
+    // 로그인, 회원가입 클릭 시 페이지 이동하기
+    // 대상 : .sns a
+    $('.sns a').click(function(e){
+        
+        // 1. 기본기능 막기
+        e.preventDefault();
+
+        // 2. 내부 텍스트 읽어오기
+        let txt = $(this).text().trim();
+        console.log("sns텍스트:",txt);
+        
+        // 3. 분기하기
+        let url;
+    switch(txt){
+        case "로그인" : url="login"; break;
+        case "회원가입" : url="member"; break;
+        case "갤러리" : url="gallery"; break;
+        case "인스타그램" : url="https://www.instagram.com/VOGUEKOREA/"; break;
+        case "페이스북" : url="https://www.facebook.com/VOGUEkr"; break;
+        case "트위터" : url="https://twitter.com/VogueKorea"; break;
+        case "유튜브" : url="https://www.youtube.com/user/VogueKorea?sub_confirmation=1"; break;
+        case "카카오스토리" : url="https://story.kakao.com/ch/voguekr"; break;
+
+    } /// switch case ////
+
+    // 4. 페이지이동하기
+    if(txt ==="로그인" || txt ==="회원가입" || txt ==="갤러리")
+        location.href = url + ".html";
+    else
+        window.open().location.href =url;
+    // window.open() 새창열기 -> 원래는 팝업창 띄우는것!
+
+    }); //// click /////
+
     // 부드러운 스크롤 호출!
     startSS();
 
@@ -93,6 +160,22 @@ window.addEventListener("DOMContentLoaded",()=>{
 
      // 위치배열변수 확인
     //  console.log(scPos);
+
+    /////////////////////////////////////////
+    // 햄버거 버튼 클릭시 모바일 메뉴 보이기 //
+    // 대상 : 이벤트 대상 - .hbtn
+    // 변경대상 : #mobx
+    $(".hbtn").click(()=>{
+        $("#mobx").slideToggle(400,"easeInCirc");
+    }); //// click ////
+    
+    /////////////////////////////////////////
+    // 검색 버튼 클릭시 검색박스 보이기 //
+    // 대상 : 이벤트 대상 - .sbtn
+    // 변경대상 : .mos
+    $(".sbtn").click(()=>{
+        $(".mos").slideToggle(200,"easeInOutCubic");
+    }); //// click ////
 
 }); //////////////// 로드구역 /////////////////////////
 
